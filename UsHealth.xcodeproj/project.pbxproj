@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B67A8212C19C218758C74D34 /* Pods_UsHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF862F9ECD8474F6212DA78 /* Pods_UsHealth.framework */; };
+		F297779525D33FEE00EF179B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F297779425D33FEE00EF179B /* GoogleService-Info.plist */; };
 		F2F901EB25C2811500A25ABC /* UsHealthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F901EA25C2811500A25ABC /* UsHealthApp.swift */; };
 		F2F901ED25C2811500A25ABC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F901EC25C2811500A25ABC /* ContentView.swift */; };
 		F2F901EF25C2811900A25ABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2F901EE25C2811900A25ABC /* Assets.xcassets */; };
@@ -14,6 +16,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3142D0DAE2E0531030CFDAAC /* Pods-UsHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsHealth.debug.xcconfig"; path = "Target Support Files/Pods-UsHealth/Pods-UsHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		CDF862F9ECD8474F6212DA78 /* Pods_UsHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14E3EDB2C81D40B374308BC /* Pods-UsHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsHealth.release.xcconfig"; path = "Target Support Files/Pods-UsHealth/Pods-UsHealth.release.xcconfig"; sourceTree = "<group>"; };
+		F297779425D33FEE00EF179B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2F901E725C2811500A25ABC /* UsHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F901EA25C2811500A25ABC /* UsHealthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsHealthApp.swift; sourceTree = "<group>"; };
 		F2F901EC25C2811500A25ABC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67A8212C19C218758C74D34 /* Pods_UsHealth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C98E84FC4DF853BA8F8BF160 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDF862F9ECD8474F6212DA78 /* Pods_UsHealth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E675CD6F5876657DAF3A15F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3142D0DAE2E0531030CFDAAC /* Pods-UsHealth.debug.xcconfig */,
+				F14E3EDB2C81D40B374308BC /* Pods-UsHealth.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F2F901DE25C2811500A25ABC = {
 			isa = PBXGroup;
 			children = (
+				F297779425D33FEE00EF179B /* GoogleService-Info.plist */,
 				F2F901E925C2811500A25ABC /* UsHealth */,
 				F2F901E825C2811500A25ABC /* Products */,
+				E675CD6F5876657DAF3A15F7 /* Pods */,
+				C98E84FC4DF853BA8F8BF160 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2F901F625C2811900A25ABC /* Build configuration list for PBXNativeTarget "UsHealth" */;
 			buildPhases = (
+				5F31121EFE3B4E499C24F113 /* [CP] Check Pods Manifest.lock */,
 				F2F901E325C2811500A25ABC /* Sources */,
 				F2F901E425C2811500A25ABC /* Frameworks */,
 				F2F901E525C2811500A25ABC /* Resources */,
+				2E5B08DF9D8550BC673A270B /* [CP] Embed Pods Frameworks */,
+				380EC8E441C4F5C8B7753357 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,10 +158,70 @@
 			files = (
 				F2F901F225C2811900A25ABC /* Preview Assets.xcassets in Resources */,
 				F2F901EF25C2811900A25ABC /* Assets.xcassets in Resources */,
+				F297779525D33FEE00EF179B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E5B08DF9D8550BC673A270B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UsHealth/Pods-UsHealth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UsHealth/Pods-UsHealth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UsHealth/Pods-UsHealth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		380EC8E441C4F5C8B7753357 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UsHealth/Pods-UsHealth-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UsHealth/Pods-UsHealth-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UsHealth/Pods-UsHealth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F31121EFE3B4E499C24F113 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UsHealth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F2F901E325C2811500A25ABC /* Sources */ = {
@@ -264,6 +354,7 @@
 		};
 		F2F901F725C2811900A25ABC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3142D0DAE2E0531030CFDAAC /* Pods-UsHealth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -285,6 +376,7 @@
 		};
 		F2F901F825C2811900A25ABC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F14E3EDB2C81D40B374308BC /* Pods-UsHealth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
