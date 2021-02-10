@@ -89,24 +89,40 @@ struct OnBoard : View {
 struct Home : View {
     @State var progressValue: Float = 0.0
     var body: some View {
-        VStack{
-            ZStack{
-                Color.yellow.opacity(0.1)
-                    .edgesIgnoringSafeArea(.all)
-                VStack{
-                    HStack{
-                        ProgressBar(progress: self.$progressValue)
-                            .frame(width: 150.0, height: 150.0)
-                            .padding(40.0)
-                    }
-                    Spacer()
-                }
+        VStack(alignment: .leading){
+            HStack{
+                ProgressBar(progress: self.$progressValue)
+                    .frame(width: 150.0, height: 150.0)
+                    .padding(40.0)
+                
+                
+                let formatted = String(format: "%.0f", progressValue)
+                Text("You are \(formatted)% complete!").font(.title).bold()
             }
+            Button(action: {
+                self.incrementProgress()
+            }) {
+                HStack {
+                    Image(systemName: "plus.rectangle.fill")
+                    Text("Workout Completed!")
+                }.padding(15.0).overlay(
+                    RoundedRectangle(cornerRadius: 15.0).stroke(lineWidth: 2.0))
+            }
+
+            Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
+            Text("Build list of workouts and Times").padding(20)
+            Spacer()
+            
         }
-//            Text("Logged in As  \n\(Auth.auth().currentUser!.email ?? "No email")").multilineTextAlignment(.center)
-//            Text("Start Dashboard View Setup")
+    }
+    
+    func incrementProgress(){
+        //Get Workout Data
+        let randomValue = Float([0.02, 0.01, 0.03, 0.04, 0.05].randomElement()!)
+        self.progressValue += randomValue
     }
 }
+
 
 struct Board {
     var title : String
