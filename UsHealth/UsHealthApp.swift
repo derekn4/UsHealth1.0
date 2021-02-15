@@ -64,7 +64,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
             NotificationCenter.default.post(name: NSNotification.Name("SIGNIN"),  object: nil)
             
             self.email = (result?.user.email)!
-            print(result?.user.email)
+            //print(result?.user.email)
             
         }
     

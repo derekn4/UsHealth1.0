@@ -13,6 +13,8 @@ struct ContentView: View {
     
     @ObservedObject var info : AppDelegate
     @State var user = Auth.auth().currentUser
+    //Store Calendar Info in Var
+    //make new swift file for calendar
     
     var body: some View {
         VStack{
@@ -90,6 +92,7 @@ struct Home : View {
     @State var progressValue: Float = 0.0
     var body: some View {
         VStack(alignment: .leading){
+            
             HStack{
                 ProgressBar(progress: self.$progressValue)
                     .frame(width: 150.0, height: 150.0)
@@ -99,6 +102,7 @@ struct Home : View {
                 let formatted = String(format: "%.0f", progressValue)
                 Text("You are \(formatted)% complete!").font(.title).bold()
             }
+            
             Button(action: {
                 self.incrementProgress()
             }) {
@@ -108,6 +112,7 @@ struct Home : View {
                 }.padding(15.0).overlay(
                     RoundedRectangle(cornerRadius: 15.0).stroke(lineWidth: 2.0))
             }
+            
 
             Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
             Text("Build list of workouts and Times").padding(20)
@@ -129,3 +134,4 @@ struct Board {
     var detail : String
     var pic : String
 }
+

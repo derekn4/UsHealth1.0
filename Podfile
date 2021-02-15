@@ -8,4 +8,8 @@ target 'UsHealth' do
   # Pods for UsHealth
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
+pod 'GoogleAPIClient'
+pod 'GoogleAPIClient/Calendar'
+pod 'GTMOAuth2'
+
 end
