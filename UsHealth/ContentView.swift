@@ -13,8 +13,10 @@ struct ContentView: View {
     
     @ObservedObject var info : AppDelegate
     @State var user = Auth.auth().currentUser
+    @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     //Store Calendar Info in Var
     //make new swift file for calendar
+    //logout button
     
     var body: some View {
         VStack{
@@ -24,10 +26,18 @@ struct ContentView: View {
             else {
                 OnBoard()
             }
-        }
+        }.animation(.spring())
         .onAppear {
             NotificationCenter.default.addObserver(forName: NSNotification.Name("SIGNIN"), object: nil, queue: .main) { (_) in
                 self.user = Auth.auth().currentUser
+            }
+        }
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("statusChange"), object: nil, queue: .main) { (_) in
+                            
+                let status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+                self.status = status
+                self.user = nil
             }
         }
     }
@@ -97,10 +107,7 @@ struct Home : View {
                 ProgressBar(progress: self.$progressValue)
                     .frame(width: 150.0, height: 150.0)
                     .padding(40.0)
-                
-                
-                let formatted = String(format: "%.0f", progressValue)
-                Text("You are \(formatted)% complete!").font(.title).bold()
+                ProgressLabel(progress: self.$progressValue)
             }
             
             Button(action: {
@@ -117,7 +124,15 @@ struct Home : View {
             Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
             Text("Build list of workouts and Times").padding(20)
             Spacer()
-            
+            Button(action: {
+                try! Auth.auth().signOut()
+                GIDSignIn.sharedInstance()?.signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                
+            }) {
+                Text("Logout")
+            }
         }
     }
     
@@ -133,5 +148,19 @@ struct Board {
     var title : String
     var detail : String
     var pic : String
+}
+
+struct ProgressLabel: View {
+    @Binding var progress: Float
+    var body: some View {
+        let formatted = String(format: "%.0f", min(self.progress, 1.0)*100.0)
+        if formatted=="100"{
+            Text("Well Done!").font(.title).bold()
+        }
+        else {
+        Text("You are \(formatted)% completed!").font(.title)
+            .bold().clipped()
+        }
+    }
 }
 

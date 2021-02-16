@@ -71,4 +71,3 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate, Observabl
     }
 
 }
-
