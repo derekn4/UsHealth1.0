@@ -99,7 +99,10 @@ struct OnBoard : View {
 }
 
 struct Home : View {
+    
     @State var progressValue: Float = 0.0
+    var tasks: [Task] = testDataTasks // (1)
+
     var body: some View {
         VStack(alignment: .leading){
             
@@ -121,8 +124,8 @@ struct Home : View {
             }
             
 
-            Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
-            Text("Build list of workouts and Times").padding(20)
+            //Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
+            //Text("Build list of workouts and Times").padding(20)
             Spacer()
             Button(action: {
                 try! Auth.auth().signOut()
@@ -133,6 +136,30 @@ struct Home : View {
             }) {
                 Text("Logout")
             }
+            NavigationView { // (2)
+                  VStack(alignment: .leading) {
+                    List {
+                      ForEach (self.tasks) { task in // (3)
+                        TaskCell(task: task) // (6)
+                      }
+                      .onDelete { indexSet in // (4)
+                         // The rest of this function will be added later
+                      }
+                    }
+                    Button(action: {}) { // (7)
+                      HStack {
+                        Image(systemName: "plus.circle.fill") //(8)
+                          .resizable()
+                          .frame(width: 20, height: 20) // (11)
+                        Text("New Task") // (9)
+                      }
+                    }
+                    .padding()
+                    .accentColor(Color(UIColor.systemRed)) // (13)
+                  }
+                  .navigationBarTitle("Upcoming Workouts")
+                }
+            Spacer()
         }
     }
     
@@ -142,7 +169,18 @@ struct Home : View {
         self.progressValue += randomValue
     }
 }
-
+struct TaskCell: View { // (5)
+  var task: Task
+  
+  var body: some View {
+    HStack {
+      Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
+        .resizable()
+        .frame(width: 20, height: 20) // (12)
+      Text(task.title)
+    }
+  }
+}
 
 struct Board {
     var title : String

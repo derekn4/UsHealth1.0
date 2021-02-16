@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CF00D7025DB6609002FC22E /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF00D6F25DB6609002FC22E /* Workout.swift */; };
 		B67A8212C19C218758C74D34 /* Pods_UsHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF862F9ECD8474F6212DA78 /* Pods_UsHealth.framework */; };
 		F297779525D33FEE00EF179B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F297779425D33FEE00EF179B /* GoogleService-Info.plist */; };
 		F297779925D345E700EF179B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F297779825D345E700EF179B /* ProgressBar.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		3142D0DAE2E0531030CFDAAC /* Pods-UsHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsHealth.debug.xcconfig"; path = "Target Support Files/Pods-UsHealth/Pods-UsHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		3CF00D6F25DB6609002FC22E /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		CDF862F9ECD8474F6212DA78 /* Pods_UsHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14E3EDB2C81D40B374308BC /* Pods-UsHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsHealth.release.xcconfig"; path = "Target Support Files/Pods-UsHealth/Pods-UsHealth.release.xcconfig"; sourceTree = "<group>"; };
 		F297779425D33FEE00EF179B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				F2F901F325C2811900A25ABC /* Info.plist */,
 				F2F901F025C2811900A25ABC /* Preview Content */,
 				F297779825D345E700EF179B /* ProgressBar.swift */,
+				3CF00D6F25DB6609002FC22E /* Workout.swift */,
 			);
 			path = UsHealth;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				F2F901ED25C2811500A25ABC /* ContentView.swift in Sources */,
 				F297779925D345E700EF179B /* ProgressBar.swift in Sources */,
 				F2F901EB25C2811500A25ABC /* UsHealthApp.swift in Sources */,
+				3CF00D7025DB6609002FC22E /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
