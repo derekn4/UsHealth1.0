@@ -123,8 +123,6 @@ struct Home : View {
                     RoundedRectangle(cornerRadius: 15.0).stroke(lineWidth: 2.0))
             }
             
-
-            //Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
             //Text("Build list of workouts and Times").padding(20)
             Spacer()
             Button(action: {
@@ -136,30 +134,26 @@ struct Home : View {
             }) {
                 Text("Logout")
             }
-            NavigationView { // (2)
-                  VStack(alignment: .leading) {
-                    List {
-                      ForEach (self.tasks) { task in // (3)
-                        TaskCell(task: task) // (6)
-                      }
-                      .onDelete { indexSet in // (4)
-                         // The rest of this function will be added later
-                      }
-                    }
-                    Button(action: {}) { // (7)
-                      HStack {
-                        Image(systemName: "plus.circle.fill") //(8)
-                          .resizable()
-                          .frame(width: 20, height: 20) // (11)
-                        Text("New Task") // (9)
-                      }
-                    }
-                    .padding()
-                    .accentColor(Color(UIColor.systemRed)) // (13)
-                  }
-                  .navigationBarTitle("Upcoming Workouts")
-                }
-            Spacer()
+            Text("Upcoming Workouts").font(.largeTitle).bold().padding(20)
+
+            List {
+              ForEach (self.tasks) { task in // (3)
+                TaskCell(task: task) // (6)
+              }
+              .onDelete { indexSet in // (4)
+                 // The rest of this function will be added later
+              }
+            }.listStyle(InsetGroupedListStyle())
+            Button(action: {}) { // (7)
+              HStack {
+                Image(systemName: "plus.circle.fill") //(8)
+                  .resizable()
+                  .frame(width: 20, height: 20) // (11)
+                Text("New Task") // (9)
+              }
+            }
+            .padding()
+            .accentColor(Color(UIColor.systemRed)) // (13)
         }
     }
     
